@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 // require('dotenv').config();
 // const BASE_URL = process.env.VITE_BASE_URL;
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const MainInvestForm = () => {
   const { plan } = useParams(); // Get the plan from the URL path
@@ -34,7 +34,7 @@ const MainInvestForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/api/v1/createInvest/investments`, {
+      const response = await fetch("https://one2-profit.onrender.com/api/v1/createInvest/investments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

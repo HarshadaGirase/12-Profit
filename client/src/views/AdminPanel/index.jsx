@@ -11,9 +11,9 @@ import "react-toastify/dist/ReactToastify.css";
 // require('dotenv').config();
 // const BASE_URL = process.env.VITE_BASE_URL;
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-console.log(BASE_URL);
+
 
 const AdminPanel = () => {
   const [userData, setUserData] = useState([]);
@@ -25,7 +25,7 @@ const AdminPanel = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/v1/getInvest/investments`
+          "https://one2-profit.onrender.com/api/v1/getInvest/investments"
         );
         setUserData(response.data);
       } catch (error) {
@@ -75,7 +75,7 @@ const AdminPanel = () => {
   // Handle delete action
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}/api/v1/deleteInvest/investments/${id}`);
+      await axios.delete(`https://one2-profit.onrender.com/api/v1/deleteInvest/investments/${id}`);
 
       setUserData(userData.filter((user) => user._id !== id));
       toast.success("Investor deleted successfully!");
